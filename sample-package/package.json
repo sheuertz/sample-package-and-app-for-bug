@@ -1,0 +1,51 @@
+{
+    "name": "@sample-component/button",
+    "version": "0.0.0",
+    "description": "",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "module": "lib/index.esm.js",
+    "scripts": {
+        "test": "jest --config jestconfig.json --coverage",
+        "document": "typedoc --out documentation --hideGenerator --includeDeclarations --exclude \"**/node_modules/**\" src/",
+        "compile": "rollup -c",
+        "audit": "yarn audit --registry=https://registry.npmjs.org --json > audit-results.json",
+        "build": "yarn run clean && yarn run document && yarn run compile",
+        "clean": "shx rm -rf lib documentation",
+        "prepublishOnly": "yarn run build && yarn version --patch"
+    },
+    "files": [
+        "lib/**/*"
+    ],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/jest": "^24.0.3",
+        "@types/react": "^16.8.8",
+        "@typescript-eslint/eslint-plugin": "^1.1.0",
+        "@typescript-eslint/parser": "^1.1.0",
+        "awesome-typescript-loader": "^5.2.1",
+        "eslint": "^5.12.0",
+        "jest": "^24.5.0",
+        "react": "^16.8.5",
+        "rollup": "^1.7.4",
+        "rollup-plugin-commonjs": "^9.2.0",
+        "rollup-plugin-node-resolve": "^4.0.0",
+        "rollup-plugin-typescript2": "^0.20.1",
+        "shx": "^0.3.2",
+        "ts-jest": "^24.0.0",
+        "typedoc": "^0.14.2",
+        "typescript": "^3.2.4"
+    },
+    "peerDependencies": {
+        "@types/react": "^16.8.8",
+        "react": "^16.8.5"
+    },
+    "dependencies": {
+        "@emotion/core": "^10.0.10",
+        "@emotion/styled": "^10.0.10",
+        "@sample-api/constants": "../sample-constants/",
+        "@types/react-is": "^16.7.1",
+        "react-is": "^16.8.6"
+    }
+}

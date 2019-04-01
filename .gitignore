@@ -1,0 +1,5 @@
+**/lib
+**/documentation
+**/node_modules
+**/.rpt2_cache
+node_modules
